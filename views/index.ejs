@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Find A Physician</title>
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+          <div style="width:500px; margin: auto">
+          <% if(typeof error !="undefined"){%>
+          <p><%=error%></p>
+          <%}%>
+          <form action="/map" method="POST">
+              First Name:<br>
+              <input class="form-control" type="text" name="fname" size="52" required><br>
+              Middle Name:<br>
+              <input class = "form-control" type="text" name="mname" size="52" required><br>
+              Last Name:<br>
+              <input class = "form-control" type="text" name="lname" size="52" required><br>
+            <input class="btn btn-primary" type="submit" value="Search">
+            </form>
+          </div>
+            <% if(typeof fname != "undefined"){%>
+
+              <head>
+              <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
+              <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
+              </head>
+
+              <body>
+                <div><br></div>
+                <div><br></div>
+                <div><br></div>
+                <div style="width:500px; margin: auto">
+                <h3>Found a Physician - <%=fname%> <%=mname%> <%=lname%></h3>
+              <a data-fancybox="" data-options="{&quot;iframe&quot; : {&quot;css&quot; : {&quot;width&quot; : &quot;80%&quot;, &quot;height&quot; : &quot;80%&quot;}}}" href="https://www.google.com/maps/search/?api=1&amp;query=<%=street%>+<%=zip%>" class="btn btn-primary"><button class="button-primary">Locate</button></a>
+            </div>
+              </body>
+
+          <%  }%>
+
+  </body>
+</html>
